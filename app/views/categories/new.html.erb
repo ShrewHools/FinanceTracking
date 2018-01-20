@@ -1,0 +1,15 @@
+<section class="category_new">
+  <div class="span6 offset3">
+    <%= form_for(@category) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :status %>
+      <%= f.select :status, Category.statuses.keys.to_a %>
+
+
+        <%= f.submit "Create category", class: "btn btn-large btn-primary" %>
+      <% end %>
+  </div>
+</section>

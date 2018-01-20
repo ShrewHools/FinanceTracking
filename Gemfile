@@ -19,6 +19,7 @@ gem 'bootstrap-sass'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'font-awesome-sass'
 gem 'devise'
+gem 'rubocop'
 
 group :development, :test do
   gem 'byebug', platform: :mri

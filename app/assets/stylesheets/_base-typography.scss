@@ -1,0 +1,143 @@
+$mainFont: "GraublauSlab-Regular";
+$mainFontBold: "GraublauSlab-Bold";
+$GSBIF: "GraublauSlab-BoldItalic";
+$GraublauHeavy: "GraublauSlab-Heavy";
+$GSDHIF: "GraublauSlab-HeavyItalic";
+$GraublauSansDisplayRegFont: "GraublauSansDisplayRegular";
+$GraublauSansDisplayLtFont: "GraublauSansDispLt";
+$GSDLIF: "GraublauSansDispLtIt";
+$GraublauSansDisplayBdFont: "GraublauSansDispBd";
+$GSLIF: "GraublauSlab-LightItalic";
+
+@font-face {
+  font-family: "GraublauSlab-Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("GraublauSlabPro/GraublauSlab-Regular.otf");
+}
+
+@font-face {
+  font-family: "GraublauSlab-Light";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("GraublauSlabPro/GraublauSlab-Light.otf");
+}
+
+@font-face {
+  font-family: "GraublauSlab-LightItalic";
+  font-style: italic;
+  font-weight: normal;
+  src: asset-url("GraublauSlabPro/GraublauSlab-LightItalic.otf");
+}
+
+@font-face {
+  font-family: "GraublauSlabExtraLightItalic";
+  font-style: italic;
+  font-weight: normal;
+  src: asset-url("GraublauSlabPro/GraublauSlab-ExtraLightItalic.otf");
+}
+
+@font-face {
+  font-family: "GraublauSlab-Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("GraublauSlabPro/GraublauSlab-Bold.otf");
+}
+
+@font-face {
+  font-family: "GraublauSlab-BoldItalic";
+  font-style: italic;
+  font-weight: normal;
+  src: asset-url("GraublauSansPro/GraublauSans-Bold-Italic.otf");
+}
+
+@font-face {
+  font-family: "GraublauSlab-Heavy";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("GraublauSlabPro/GraublauSlab-Heavy.otf");
+}
+
+@font-face {
+  font-family: "GraublauSlab-HeavyItalic";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("GraublauSlabPro/GraublauSlab-HeavyItalic.otf");
+}
+
+@font-face {
+  font-family: "GraublauSans-Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("GraublauSansPro/GraublauSans-Regular.otf");
+}
+
+@font-face {
+  font-family: "GraublauSansBook";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("GraublauSansPro/GraublauSans-Book.otf");
+}
+
+@font-face {
+  font-family: "GraublauSans-Semibold";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("GraublauSansPro/GraublauSans-Semibold.otf");
+}
+
+@font-face {
+  font-family: "GraublauSans-Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("GraublauSansPro/GraublauSans-Bold.otf");
+}
+
+@font-face {
+  font-family: "GraublauSansDisplayRegular";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("GraublauSansPro/GraublauSansDisplay-Regular.otf");
+}
+
+@font-face {
+  font-family: "GraublauSansDisplay-Italic";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("GraublauSansPro/GraublauSansDisplay-Italic.otf");
+}
+
+@font-face {
+  font-family: "GraublauSansDispLt";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("GraublauSansPro/GraublauSansDisplay-Light.otf");
+}
+
+@font-face {
+  font-family: "GraublauSansDispLtIt";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("GraublauSansPro/GraublauSansDisplay-Light-Italic.otf");
+}
+
+@font-face {
+  font-family: "GraublauSansDispBd";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("GraublauSansPro/GraublauSansDisplay-Bold.otf");
+}
+
+@font-face {
+  font-family: "GraublauSansDispay-BoldItalic";
+  font-style: italic;
+  font-weight: normal;
+  src: asset-url("GraublauSansPro/GraublauSansDisplay-BoldItalic.otf");
+}
+
+@font-face {
+  font-family: "GraublauSans-Heavy-Italic";
+  font-style: normal;
+  font-weight: normal;
+  src: asset-url("GraublauSansPro/GraublauSans-Heavy-Italic.otf");
+}

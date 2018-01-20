@@ -4,6 +4,7 @@
   <% @categories.each do |category| %>
     <p>
       <%= category.name %>
+      <%= link_to 'update', edit_category_path(category), class: 'btn btn-primary' %>
     </p>
   <% end %>
 </section>

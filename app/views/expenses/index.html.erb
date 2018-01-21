@@ -1,0 +1,26 @@
+<section class="expenses report_index">
+  <h1><i class="fa fa-money color--red" aria-hidden="true"></i>Expenses</h1>
+  <%= link_to 'Create Expense', new_expense_path, class: 'btn btn-lg btn-danger' %>
+  <div class="reports_wrapper">
+    <% @expenses.each do |expense| %>
+      <div class="report">
+        <div class="description">
+          <div class="amount">
+            Amount - <%= expense.amount %>$
+          </div>
+          <div class="category">
+            Category - <%= expense.category.name %>
+          </div>
+          <div class="when">
+            When - <%= expense.when %>
+          </div>
+        </div>
+        <div class="btns">
+          <%= link_to 'See more', expense_path(expense), class: 'btn btn-primary' %>
+          <%= link_to 'Edit', edit_expense_path(expense), class: 'btn btn-success' %>
+          <%= link_to 'Detele', expense, method: :delete, data: { confirm: 'You sure?' }, class: 'btn btn-danger' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

@@ -1,5 +1,5 @@
-<section class="income_new">
-  <%= form_for(@income) do |f| %>
+<section class="income_new report_new">
+  <%= form_for(@income, html: { class: 'report_form' }) do |f| %>
     <div class="input_wrapper">
       <%= f.label :category %>
       <%= f.select(:category_id, @categories.collect {|c| [ c.name, c.id ] }) if @categories.any? %>

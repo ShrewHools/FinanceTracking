@@ -1,4 +1,4 @@
-.income_show {
+.report_show {
   background-color: rgba(0, 0, 0, 0.5);
   margin-top: 20px;
   padding: 20px;
@@ -20,10 +20,6 @@
     .title {
       font-family: $mainFontBold;
       border-bottom: 1px solid #fff;
-    }
-
-    .amount {
-      color: green;
     }
   }
 }

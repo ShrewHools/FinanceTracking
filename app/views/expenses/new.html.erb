@@ -1,13 +1,15 @@
-<section class="income_edit report_edit">
-  <%= form_for(@income, html: { class: 'report_edit_form' }) do |f| %>
+<section class="expense_new report_new">
+  <%= form_for(@expense, html: { class: 'report_form' }) do |f| %>
     <div class="input_wrapper">
       <%= f.label :category %>
       <%= f.select(:category_id, @categories.collect {|c| [ c.name, c.id ] }) if @categories.any? %>
+      <%= link_to 'Create new category', new_category_path, class: 'btn btn-danger btn-m-top' %>
     </div>
 
     <div class="input_wrapper">
       <%= f.label :amount %>
       <div class="form-group">
+        <!-- change for label -->
         <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
         <div class="input-group">
           <div class="input-group-addon">$</div>
@@ -27,7 +29,7 @@
     </div>
 
     <div class="input_wrapper">
-      <%= f.submit "Update", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Create", class: "btn btn-large btn-primary" %>
     </div>
   <% end %>
 </section>

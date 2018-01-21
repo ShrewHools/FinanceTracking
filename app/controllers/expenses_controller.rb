@@ -3,7 +3,7 @@ class ExpensesController < ApplicationController
   before_action :current_expense, only: [:show, :edit, :update, :destroy]
 
   def index
-    @expenses = current_user.expenses
+    @expenses = current_user.expenses.order(when: :desc)
   end
 
   def show

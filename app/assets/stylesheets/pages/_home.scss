@@ -1,0 +1,62 @@
+.home {
+  .filters_box {
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 6px;
+
+    .category {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .title {
+        font-family: $GraublauHeavy;
+        font-size: 20px;
+      }
+    }
+
+    .period {
+      .title {
+        font-family: $GraublauHeavy;
+        font-size: 20px;
+      }
+
+      .inputs {
+        display: flex;
+
+        .input_wrapper {
+          margin: 0 10px;
+        }
+      }
+    }
+
+    .btn_wrap {
+      align-self: flex-end;
+    }
+  }
+
+  .reports {
+    .report_index {
+      h1 {
+        width: 80%;
+        margin: 0 auto;
+        text-align: left;
+      }
+
+      .reports_wrapper {
+        .sum_amount {
+          font-family: $GraublauHeavy;
+          text-align: left;
+
+          span {
+            font-size: 25px;
+          }
+        }
+      }
+    }
+  }
+}

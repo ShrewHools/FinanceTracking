@@ -15,4 +15,9 @@ $(document).ready(function() {
   $('#expense_category_id').selectpicker({
     style: 'btn-danger'
   });
+
+  $('#category_search').selectpicker({
+    style: 'btn-success',
+    liveSearch: true
+  });
 });

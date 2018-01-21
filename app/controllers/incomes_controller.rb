@@ -3,7 +3,7 @@ class IncomesController < ApplicationController
   before_action :current_income, only: [:show, :edit, :update, :destroy]
 
   def index
-    @incomes = current_user.incomes
+    @incomes = current_user.incomes.order(when: :desc)
   end
 
   def show

@@ -20,7 +20,7 @@ class ExpensesController < ApplicationController
     if @expense.save
       redirect_to root_path, flash: { success: 'Expense created' }
     else
-      redirect_to new_expense_path, flash: { danger: "#{@expense.errors.values.flatten}" }
+      redirect_to new_expense_path, flash: { danger: @expense.errors.full_messages.to_sentence }
     end
   end
 
@@ -33,7 +33,7 @@ class ExpensesController < ApplicationController
     if @expense.update_attributes(expense_params)
       redirect_to @expense, flash: { success: 'Expense updated' }
     else
-      redirect_to edit_expense_path(@expense), flash: { danger: "#{@expense.errors.values.flatten}" }
+      redirect_to edit_expense_path(@expense), flash: { danger: @expense.errors.full_messages.to_sentence }
     end
   end
 

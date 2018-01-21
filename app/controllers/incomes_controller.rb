@@ -20,7 +20,7 @@ class IncomesController < ApplicationController
     if @income.save
       redirect_to root_path, flash: { success: 'Income created' }
     else
-      redirect_to new_income_path, flash: { danger: "#{@income.errors.values.flatten}" }
+      redirect_to new_income_path, flash: { danger: @income.errors.full_messages.to_sentence }
     end
   end
 
@@ -33,7 +33,7 @@ class IncomesController < ApplicationController
     if @income.update_attributes(income_params)
       redirect_to @income, flash: { success: 'Income updated' }
     else
-      redirect_to edit_income_path(@income), flash: { danger: "#{@income.errors.values.flatten}" }
+      redirect_to edit_income_path(@income), flash: { danger: @income.errors.full_messages.to_sentence }
     end
   end
 

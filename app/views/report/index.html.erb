@@ -1,6 +1,70 @@
 <section class="home">
   <% if current_user %>
-
+    <%= link_to 'Create Income', new_income_path, class: 'btn btn-lg btn-success' %>
+    <%= link_to 'Create Expense', new_expense_path, class: 'btn btn-lg btn-danger' %>
+    <div class="reports">
+      <h1>All finances for the period: -100$</h1>
+      <div class="report_index">
+        <h1><span class="glyphicon glyphicon-gift color--green" aria-hidden="true"> </span>Incomes</h1>
+        <div class="reports_wrapper">
+          <% if @incomes.present? %>
+            <p class="sum_amount">Amount of income - <span class="color--green">100$</span></p>
+            <% @incomes.each do |income| %>
+              <div class="report">
+                <div class="description">
+                  <div class="amount">
+                    Amount - <%= income.amount %>$
+                  </div>
+                  <div class="category">
+                    Category - <%= income.category.name %>
+                  </div>
+                  <div class="when">
+                    When - <%= income.when %>
+                  </div>
+                </div>
+                <div class="btns">
+                  <%= link_to 'See more', income_path(income), class: 'btn btn-primary' %>
+                  <%= link_to 'Edit', edit_income_path(income), class: 'btn btn-success' %>
+                  <%= link_to 'Detele', income, method: :delete, data: { confirm: 'You sure?' }, class: 'btn btn-danger' %>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <h2>Incomes not found</h2>
+          <% end %>
+        </div>
+      </div>
+      <div class="expenses report_index">
+        <h1><i class="fa fa-money color--red" aria-hidden="true"></i>Expenses</h1>
+        <div class="reports_wrapper">
+          <% if @expenses.present? %>
+          <p class="sum_amount">Amount of expense -  <span class="color--red">100$</span></p>
+            <% @expenses.each do |expense| %>
+              <div class="report">
+                <div class="description">
+                  <div class="amount">
+                    Amount - <%= expense.amount %>$
+                  </div>
+                  <div class="category">
+                    Category - <%= expense.category.name %>
+                  </div>
+                  <div class="when">
+                    When - <%= expense.when %>
+                  </div>
+                </div>
+                <div class="btns">
+                  <%= link_to 'See more', expense_path(expense), class: 'btn btn-primary' %>
+                  <%= link_to 'Edit', edit_expense_path(expense), class: 'btn btn-success' %>
+                  <%= link_to 'Detele', expense, method: :delete, data: { confirm: 'You sure?' }, class: 'btn btn-danger' %>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <h2>Expenses not found</h2>
+          <% end %>
+        </div>
+      </div>
+    </div>
   <% else %>
   <div class="center hero-unit">
     <h1>Welcome to the application "Personal finance tracking"</h1>

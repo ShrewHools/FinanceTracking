@@ -1,0 +1,22 @@
+.home {
+  .reports {
+    .report_index {
+      h1 {
+        width: 80%;
+        margin: 0 auto;
+        text-align: left;
+      }
+
+      .reports_wrapper {
+        .sum_amount {
+          font-family: $GraublauHeavy;
+          text-align: left;
+
+          span {
+            font-size: 25px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
-  before_filter :authenticate_user!
-  before_action :current_expense, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :current_expense, only: %i[show edit update destroy]
 
   def index
     @expenses = current_user.expenses.order(when: :desc)

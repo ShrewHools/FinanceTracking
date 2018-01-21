@@ -1,6 +1,6 @@
 class IncomesController < ApplicationController
-  before_filter :authenticate_user!
-  before_action :current_income, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :current_expense, only: %i[show edit update destroy]
 
   def index
     @incomes = current_user.incomes.order(when: :desc)

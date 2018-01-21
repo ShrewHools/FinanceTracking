@@ -6,6 +6,10 @@
   border-radius: 6px;
   margin: 0 auto;
 
+  @include breakpoint(xs) {
+    width: 100vw;
+  }
+
   .block_wrapper {
     background-color: rgba(0, 0, 0, 0.2);
     display: flex;
@@ -13,13 +17,24 @@
     margin: 20px;
     border: 1px solid;
 
+    @include breakpoint(xs) {
+      margin: 10px 0;
+      border: none;
+    }
+
     p {
       font-size: 20px;
+      padding: 5px;
     }
 
     .title {
       font-family: $mainFontBold;
       border-bottom: 1px solid #fff;
+
+      @include breakpoint(xs) {
+        margin: 5px;
+        border: none;
+      }
     }
   }
 }

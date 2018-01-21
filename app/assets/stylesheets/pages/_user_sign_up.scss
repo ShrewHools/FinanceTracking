@@ -5,6 +5,10 @@
   border-radius: 6px;
   padding: 20px;
 
+  @include breakpoint(xs) {
+    width: 100vw;
+  }
+
   .form-inputs {
     .input {
       display: flex;
@@ -16,6 +20,10 @@
         width: 350px;
         text-align: center;
         color: #000;
+
+        @include breakpoint(xs) {
+          width: 90vw;
+        }
       }
     }
   }

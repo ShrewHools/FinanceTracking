@@ -1,5 +1,6 @@
 class IncomesController < ApplicationController
   before_filter :authenticate_user!
+  before_action :current_income,  only: [:edit, :update, :destroy]
 
   def index
     @incomes = current_user.incomes
@@ -16,7 +17,6 @@ class IncomesController < ApplicationController
   end
 
   def create
-    @income = current_user.incomes.build(income_params)
     if @income.save
       redirect_to root_path, flash: { success: 'Income created' }
     else
@@ -25,13 +25,11 @@ class IncomesController < ApplicationController
   end
 
   def edit
-    @income = current_user.incomes.find_by(id: params[:id])
     @categories = current_user.categories.where(status: 'income')
     redirect_to root_path, flash: { danger: 'Income not found' } unless @income
   end
 
   def update
-    @income = current_user.incomes.find_by(id: params[:id])
     if @income.update_attributes(income_params)
       redirect_to @income, flash: { success: 'Income updated' }
     else
@@ -40,7 +38,6 @@ class IncomesController < ApplicationController
   end
 
   def destroy
-    @income = current_user.incomes.find_by(id: params[:id])
     if @income
       @income.destroy
       redirect_to root_path, flash: { success: 'Income deleted' }
@@ -58,5 +55,9 @@ class IncomesController < ApplicationController
       :category_id,
       :when
     )
+  end
+
+  def current_income
+    @income = current_user.incomes.find_by(id: params[:id])
   end
 end

@@ -3,12 +3,28 @@
     display: flex;
     justify-content: space-around;
 
+    @include breakpoint(xs) {
+      flex-direction: column;
+    }
+
     .categ {
       background-color: rgba(0,0,0,0.5);
       margin-top: 20px;
       padding: 20px;
       width: 45%;
       border-radius: 6px;
+
+      @include breakpoint(xs) {
+        width: 100vw;
+      }
+
+      h1 {
+        font-size: 36px;
+
+        @include breakpoint(xs) {
+          font-size: 30px;
+        }
+      }
 
       .fa {
         margin-right: 7px;

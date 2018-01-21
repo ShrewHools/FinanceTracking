@@ -6,6 +6,11 @@
     width: 500px;
     margin: 0 auto;
 
+    @include breakpoint(xs) {
+      width: 100vw;
+    }
+
+
     input {
       width: 220px;
       color: #000;

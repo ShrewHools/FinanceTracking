@@ -46,23 +46,6 @@ body {
   }
 }
 
-header {
-  width: 100%;
-  border-bottom: solid;
-  .nav {
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-    li {
-      display: inline-block;
-    }
-
-    .hello-user {
-      color: #fff;
-    }
-  }
-}
-
 footer {
   position: absolute;
   bottom: 0;

@@ -8,7 +8,6 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
-    @category_keys = Category.statuses.keys.to_a
   end
 
   def create
@@ -17,7 +16,7 @@ class CategoriesController < ApplicationController
       flash[:success] = 'Category created'
       redirect_to categories_path
     else
-      flash.now[:danger] = @category.errors.values.flatten
+      flash.now[:danger] = @category.errors.full_messages.to_sentence
       render 'new'
     end
   end
@@ -32,7 +31,7 @@ class CategoriesController < ApplicationController
     if @category.update_attributes(category_params)
       redirect_to categories_path, flash: { success: 'Category updated' }
     else
-      flash.now[:danger] = @category.errors.values.flatten
+      flash.now[:danger] = @category.errors.full_messages.to_sentence
       render 'edit'
     end
   end

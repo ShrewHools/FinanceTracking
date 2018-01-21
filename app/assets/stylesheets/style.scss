@@ -50,6 +50,16 @@ body {
   }
 }
 
+.navbar {
+  .navbar-brand {
+    display: none;
+
+    @include breakpoint(xs) {
+      display: block;
+    }
+  }
+}
+
 footer {
   position: absolute;
   bottom: 0;

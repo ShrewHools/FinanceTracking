@@ -1,0 +1,28 @@
+.categories {
+  .categories_wrap {
+    display: flex;
+    justify-content: space-around;
+
+    .categ {
+      background-color: rgba(0,0,0,0.5);
+      margin-top: 20px;
+      padding: 20px;
+      width: 45%;
+      border-radius: 6px;
+
+      .fa {
+        margin-right: 7px;
+      }
+
+      .glyphicon {
+        margin-right: 7px;
+      }
+
+      .category {
+        background-color: rgba(0,0,0,0.2);
+        padding: 15px;
+        margin-top: 15px;
+      }
+    }
+  }
+}

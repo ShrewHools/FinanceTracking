@@ -10,6 +10,14 @@
   border-color: #bce8f1;
 }
 
+.color--red {
+  color: red;
+}
+
+.color--green {
+  color: green;
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -65,10 +73,11 @@ footer {
   font-size: 14px;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
   box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   p {
-    padding-top: 35px;
-    padding-bottom: 35px;
     color: #fff;
   }
 }

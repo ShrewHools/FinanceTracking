@@ -1,0 +1,15 @@
+<section class="categories">
+  <%= link_to 'Create category', new_category_path, class: 'btn btn-lg btn-success' %>
+
+  <div class="categories_wrap">
+    <div class="expens_categories categ">
+      <h1><i class="fa fa-money color--red" aria-hidden="true"> </i>Expense categories</h1>
+      <%= render partial: 'categories', locals: { categories: @expense_categories } %>
+    </div>
+
+    <div class="income_categories categ">
+      <h1><span class="glyphicon glyphicon-gift color--green" aria-hidden="true"> </span>Income categories</h1>
+      <%= render partial: 'categories', locals: { categories: @income_categories } %>
+    </div>
+  </div>
+</section>

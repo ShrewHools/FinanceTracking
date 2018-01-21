@@ -1,9 +1,9 @@
-<section class="incomes">
-  <h1>Incomes</h1>
+<section class="incomes report_index">
+  <h1><span class="glyphicon glyphicon-gift color--green" aria-hidden="true"> </span>Incomes</h1>
   <%= link_to 'Create Income', new_income_path, class: 'btn btn-lg btn-success' %>
-  <div class="incomes_wrapper">
+  <div class="reports_wrapper">
     <% @incomes.each do |income| %>
-      <div class="income">
+      <div class="report">
         <div class="description">
           <div class="amount">
             Amount - <%= income.amount %>$

@@ -1,33 +1,33 @@
-<section class="income_show report_show">
+<section class="expense_show report_show">
 
   <div class="block_wrapper">
     <h2 class="title">Amout</h2>
-    <p class="amount color--green">
-      <%= @income.amount %> $
+    <p class="amount color--red">
+      <%= @expense.amount %> $
     </p>
   </div>
 
   <div class="block_wrapper">
     <h2 class="title">Category</h2>
     <p class="category">
-      <%= @income.category.name %>
+      <%= @expense.category.name %>
     </p>
   </div>
 
   <div class="block_wrapper">
     <h2 class="title">When</h2>
     <p class="category">
-      <%= @income.when %>
+      <%= @expense.when %>
     </p>
   </div>
 
   <div class="block_wrapper">
     <h2 class="title">Description</h2>
     <p class="category">
-      <%= @income.description %>
+      <%= @expense.description %>
     </p>
   </div>
 
-  <%= link_to 'Edit', edit_income_path(@income), class: 'btn btn-primary btn-lg' %>
-  <%= link_to 'Delete', @income, method: :delete, data: { confirm: 'You sure?' }, class: 'btn btn-danger btn-lg' %>
+  <%= link_to 'Edit', edit_expense_path(@expense), class: 'btn btn-primary btn-lg' %>
+  <%= link_to 'Delete', @expense, method: :delete, data: { confirm: 'You sure?' }, class: 'btn btn-danger btn-lg' %>
 </section>

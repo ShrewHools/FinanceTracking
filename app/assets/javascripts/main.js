@@ -11,4 +11,8 @@ $(document).ready(function() {
   $('#income_category_id').selectpicker({
     style: 'btn-success'
   });
+
+  $('#expense_category_id').selectpicker({
+    style: 'btn-danger'
+  });
 });

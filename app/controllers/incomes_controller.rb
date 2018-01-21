@@ -1,13 +1,12 @@
 class IncomesController < ApplicationController
   before_filter :authenticate_user!
-  before_action :current_income,  only: [:edit, :update, :destroy]
+  before_action :current_income, only: [:show, :edit, :update, :destroy]
 
   def index
     @incomes = current_user.incomes
   end
 
   def show
-    @income = current_user.incomes.find_by(id: params[:id])
     redirect_to root_path, flash: { danger: 'Income not found' } unless @income
   end
 
@@ -17,6 +16,7 @@ class IncomesController < ApplicationController
   end
 
   def create
+    @income = current_user.incomes.build(income_params)
     if @income.save
       redirect_to root_path, flash: { success: 'Income created' }
     else

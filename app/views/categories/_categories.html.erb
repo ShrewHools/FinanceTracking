@@ -1,7 +1,12 @@
 <% categories.each do |category| %>
   <div class="category">
-    <%= category.name %>
-    <%= link_to 'update', edit_category_path(category), class: 'btn btn-primary' %>
+    <p class="name">
+      Name - <%= category.name %>
+    </p>
+    <p class="status">
+      Status - <%= category.status %>
+    </p>
+    <%= link_to 'edit', edit_category_path(category), class: 'btn btn-primary' %>
     <%= link_to 'delete', category, method: :delete, data: { confirm: 'You sure?' }, class: 'btn btn-danger' %>
   </div>
 <% end %>

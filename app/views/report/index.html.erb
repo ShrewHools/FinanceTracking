@@ -5,7 +5,12 @@
     <%= render partial: 'search_reports', locals: { income_categories: @income_categories, expense_categories: @expense_categories } %>
 
     <div class="reports">
-      <%= render partial: 'reports', locals: { incomes: @incomes, expenses: @expenses } %>
+      <%= render partial: 'reports', locals: { incomes: @incomes,
+                                               expenses: @expenses,
+                                               expenses_amount: @expenses_amount,
+                                               incomes_amount: @incomes_amount,
+                                               all_finances: @all_finances
+                                              } %>
     </div>
   <% else %>
     <div class="center hero-unit">

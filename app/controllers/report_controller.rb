@@ -8,8 +8,11 @@ class ReportController < ApplicationController
     if current_user
       @expenses = current_user.expenses.order(when: :desc)
       @expense_categories = current_user.categories.where(status: 'expense')
+
       @incomes = current_user.incomes.order(when: :desc)
       @income_categories = current_user.categories.where(status: 'income')
+
+      set_amount
     end
   end
 
@@ -28,5 +31,15 @@ class ReportController < ApplicationController
       @incomes = current_user.incomes.where(when: min_range..max_range)
       @expenses = current_user.expenses.where(when: min_range..max_range)
     end
+
+    set_amount
+  end
+
+  private
+
+  def set_amount
+    @expenses_amount = @expenses.present? ? @expenses.sum(&:amount) : 0
+    @incomes_amount = @incomes.present? ? @incomes.sum(&:amount) : 0
+    @all_finances = @incomes_amount - @expenses_amount
   end
 end

@@ -1,7 +1,7 @@
 <div class="expenses report_index">
   <h1><i class="fa fa-money color--red" aria-hidden="true"></i>Expenses</h1>
   <div class="reports_wrapper">
-    <p class="sum_amount">Amount of expense -  <span class="color--red">100$</span></p>
+    <p class="sum_amount">Amount of expense -  <span class="color--red"><%= expenses_amount %>$</span></p>
     <% expenses.each do |expense| %>
       <div class="report">
         <div class="description">

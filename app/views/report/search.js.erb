@@ -1,5 +1,5 @@
 <% if @incomes.present? || @expenses.present? %>
-  $('.reports').html("<%= j(render partial: 'report/reports', locals: { incomes: @incomes, expenses: @expenses }) %>");
+  $('.reports').html("<%= j(render partial: 'report/reports', locals: { incomes: @incomes, expenses: @expenses, expenses_amount: @expenses_amount, incomes_amount: @incomes_amount, all_finances: @all_finances }) %>");
 <% else %>
   $('.reports').html("<h2>Reports for this period were not found.</h2>");
 <% end %>

@@ -1,8 +1,8 @@
-<h1>All finances for the period: -100$</h1>
+<h1>All finances for the period: <%= all_finances %>$</h1>
 <% if incomes.present? %>
-  <%= render partial: 'incomes', locals: { incomes: incomes } %>
+  <%= render partial: 'incomes', locals: { incomes: incomes, incomes_amount: incomes_amount } %>
 <% end %>
 
 <% if expenses.present? %>
-  <%= render partial: 'expenses', locals: { expenses: expenses } %>
+  <%= render partial: 'expenses', locals: { expenses: expenses, expenses_amount: expenses_amount } %>
 <% end %>

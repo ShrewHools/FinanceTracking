@@ -31,7 +31,7 @@ class IncomesController < ApplicationController
     if @income.update_attributes(income_params)
       redirect_to @income, flash: { success: 'Income updated' }
     else
-      redirect_to edit_income(@income), flash: { danger: "#{@income.errors.values.flatten}" }
+      redirect_to edit_income_path(@income), flash: { danger: "#{@income.errors.values.flatten}" }
     end
   end
 
@@ -48,6 +48,11 @@ class IncomesController < ApplicationController
   private
 
   def income_params
-    params.require(:income).permit(:when, :amount, :category_id, :description)
+    params.require(:income).permit(
+      :amount,
+      :description,
+      :category_id,
+      :when
+    )
   end
 end

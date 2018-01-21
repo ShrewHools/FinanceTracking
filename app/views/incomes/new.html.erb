@@ -19,12 +19,7 @@
 
     <div class="input_wrapper">
       <%= f.label :when %>
-      <div class="input-group date datepicker" data-provide="datepicker">
-        <div class="input-group-addon">
-            <span class="glyphicon glyphicon-th"></span>
-        </div>
-        <%= f.text_field :when, class: 'form-control' %>
-      </div>
+      <%= f.date_field :when, class: 'form-control' %>
     </div>
 
     <div class="input_wrapper text_area">

@@ -1,0 +1,30 @@
+.income_edit {
+  .edit_income {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 700px;
+    margin: 0 auto;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 6px;
+
+    .input_wrapper {
+      width: 220px;
+      text-align: center;
+      margin: 0 auto 20px;
+
+      input {
+        color: #000;
+        text-align: center;
+      }
+
+      .btn-m-top {
+        margin-top: 15px;
+      }
+    }
+
+    .text_area {
+      width: 400px;
+    }
+  }
+}

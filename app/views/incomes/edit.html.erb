@@ -1,0 +1,38 @@
+<section class="income_edit">
+  <%= form_for(@income) do |f| %>
+    <div class="input_wrapper">
+      <%= f.label :category %>
+      <%= f.select(:category_id, @categories.collect {|c| [ c.name, c.id ] }) if @categories.any? %>
+    </div>
+
+    <div class="input_wrapper">
+      <%= f.label :amount %>
+      <div class="form-group">
+        <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <%= f.text_field :amount, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="input_wrapper">
+      <%= f.label :when %>
+      <div class="input-group date datepicker" data-provide="datepicker">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th"></span>
+        </div>
+        <%= f.text_field :when, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="input_wrapper text_area">
+      <%= f.label :description %>
+      <%= f.text_area :description, cols: 20, rows: 5, class: 'form-control' %>
+    </div>
+
+    <div class="input_wrapper">
+      <%= f.submit "Update", class: "btn btn-large btn-primary" %>
+    </div>
+  <% end %>
+</section>

@@ -2,6 +2,8 @@ class IncomesController < ApplicationController
   before_filter :authenticate_user!
 
   def show
+    @income = current_user.incomes.find_by(id: params[:id])
+    redirect_to root_path, flash: { danger: 'Income not found' } unless @income
   end
 
   def new
@@ -19,9 +21,18 @@ class IncomesController < ApplicationController
   end
 
   def edit
+    @income = current_user.incomes.find_by(id: params[:id])
+    @categories = current_user.categories.where(status: 'income')
+    redirect_to root_path, flash: { danger: 'Income not found' } unless @income
   end
 
   def update
+    @income = current_user.incomes.find_by(id: params[:id])
+    if @income.update_attributes(income_params)
+      redirect_to @income, flash: { success: 'Income updated' }
+    else
+      redirect_to edit_income(@income), flash: { danger: "#{@income.errors.values.flatten}" }
+    end
   end
 
   def destroy

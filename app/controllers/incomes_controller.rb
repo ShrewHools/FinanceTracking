@@ -36,6 +36,13 @@ class IncomesController < ApplicationController
   end
 
   def destroy
+    @income = current_user.incomes.find_by(id: params[:id])
+    if @income
+      @income.destroy
+      redirect_to root_path, flash: { success: 'Income deleted' }
+    else
+      redirect_to root_path, flash: { danger: 'Income not found' }
+    end
   end
 
   private

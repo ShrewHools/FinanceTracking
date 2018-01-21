@@ -17,6 +17,13 @@
         font-family: $GraublauHeavy;
         font-size: 20px;
       }
+
+      .bs-placeholder {
+        .filter-option {
+          color: #d9534f;
+          font-family: "GraublauSlab-Bold";
+        }
+      }
     }
 
     .period {

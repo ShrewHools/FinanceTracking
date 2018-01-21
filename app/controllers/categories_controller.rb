@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    @category_keys = Category.statuses.keys.to_a
   end
 
   def create

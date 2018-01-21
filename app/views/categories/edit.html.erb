@@ -4,9 +4,6 @@
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
 
-    <%= f.label :status %>
-    <%= f.select :status, Category.statuses.keys.to_a %>
-
     <%= f.submit "Update category", class: "btn btn-large btn-primary" %>
   <% end %>
 </section>

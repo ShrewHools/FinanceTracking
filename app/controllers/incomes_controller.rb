@@ -1,6 +1,10 @@
 class IncomesController < ApplicationController
   before_filter :authenticate_user!
 
+  def index
+    @incomes = current_user.incomes
+  end
+
   def show
     @income = current_user.incomes.find_by(id: params[:id])
     redirect_to root_path, flash: { danger: 'Income not found' } unless @income

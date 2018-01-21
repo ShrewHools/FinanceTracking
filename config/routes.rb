@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'report/index'
 
   resources :categories, except: [:show]
-  resources :incomes, except: [:index]
+  resources :incomes
 
   devise_for :users
 end

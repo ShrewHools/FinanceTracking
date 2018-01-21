@@ -1,2 +1,35 @@
-<%= link_to 'Edit', edit_income_path(@income), class: 'btn btn-primary' %>
-<%= link_to 'Delete', @income, method: :delete, data: { confirm: 'You sure?' }, class: 'btn btn-danger' %>
+<section class="income_show">
+
+  <div class="block_wrapper">
+    <h2 class="title">Amout</h2>
+    <p class="amount">
+      <%= @income.amount %> $
+    </p>
+  </div>
+
+  <div class="block_wrapper">
+    <h2 class="title">Category</h2>
+    <p class="category">
+      <%= @income.category.name %>
+    </p>
+  </div>
+
+  <div class="block_wrapper">
+    <h2 class="title">When</h2>
+    <p class="category">
+      <%= @income.when %>
+    </p>
+  </div>
+
+  <div class="block_wrapper">
+    <h2 class="title">Description</h2>
+    <p class="category">
+      <%= @income.description %>
+    </p>
+  </div>
+
+  <%= link_to 'Edit', edit_income_path(@income), class: 'btn btn-primary btn-lg' %>
+  <%= link_to 'Delete', @income, method: :delete, data: { confirm: 'You sure?' }, class: 'btn btn-danger btn-lg' %>
+</section>
+
+

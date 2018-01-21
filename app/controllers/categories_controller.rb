@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @categories = Category.all
+    @categories = current_user.categories
   end
 
   def new
@@ -32,6 +32,16 @@ class CategoriesController < ApplicationController
     else
       flash.now[:danger] = @category.errors.values.flatten
       render 'edit'
+    end
+  end
+
+  def destroy
+    @category = current_user.categories.find_by(id: params[:id])
+    if @category
+      @category.destroy
+      redirect_to categories_path, flash: { success: 'Category deleted' }
+    else
+      redirect_to categories_path, flash: { danger: 'Category not found' }
     end
   end
 

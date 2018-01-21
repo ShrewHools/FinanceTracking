@@ -1,0 +1,26 @@
+<section class="incomes">
+  <h1>Incomes</h1>
+  <%= link_to 'Create Income', new_income_path, class: 'btn btn-lg btn-success' %>
+  <div class="incomes_wrapper">
+    <% @incomes.each do |income| %>
+      <div class="income">
+        <div class="description">
+          <div class="amount">
+            Amount - <%= income.amount %>$
+          </div>
+          <div class="category">
+            Category - <%= income.category.name %>
+          </div>
+          <div class="when">
+            When - <%= income.when %>
+          </div>
+        </div>
+        <div class="btns">
+          <%= link_to 'See more', income_path(income), class: 'btn btn-primary' %>
+          <%= link_to 'Edit', edit_income_path(income), class: 'btn btn-success' %>
+          <%= link_to 'Detele', income, method: :delete, data: { confirm: 'You sure?' }, class: 'btn btn-danger' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

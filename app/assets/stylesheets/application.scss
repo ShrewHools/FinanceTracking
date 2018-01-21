@@ -1,13 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-// @import 'bootstrap-datetimepicker';
+@import "bootstrap-select";
+@import "bootstrap-datepicker";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "combo.select";
 
 @import "base-typography";
 @import "base-mixins";
-@import "bootstrap-select";
 @import "variables";
 
 @import "style";

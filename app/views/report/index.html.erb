@@ -43,71 +43,14 @@
     <% end %>
 
     <div class="reports">
-      <h1>All finances for the period: -100$</h1>
-      <% if @incomes.present? %>
-        <div class="incomes report_index">
-          <h1><span class="glyphicon glyphicon-gift color--green" aria-hidden="true"> </span>Incomes</h1>
-          <div class="reports_wrapper">
-            <p class="sum_amount">Amount of income - <span class="color--green">100$</span></p>
-            <% @incomes.each do |income| %>
-              <div class="report">
-                <div class="description">
-                  <div class="amount">
-                    Amount - <%= income.amount %>$
-                  </div>
-                  <div class="category">
-                    Category - <%= income.category.name %>
-                  </div>
-                  <div class="when">
-                    When - <%= income.when %>
-                  </div>
-                </div>
-                <div class="btns">
-                  <%= link_to 'See more', income_path(income), class: 'btn btn-primary' %>
-                  <%= link_to 'Edit', edit_income_path(income), class: 'btn btn-success' %>
-                  <%= link_to 'Detele', income, method: :delete, data: { confirm: 'You sure?' }, class: 'btn btn-danger' %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-
-      <% if @expenses.present? %>
-        <div class="expenses report_index">
-          <h1><i class="fa fa-money color--red" aria-hidden="true"></i>Expenses</h1>
-          <div class="reports_wrapper">
-            <p class="sum_amount">Amount of expense -  <span class="color--red">100$</span></p>
-            <% @expenses.each do |expense| %>
-              <div class="report">
-                <div class="description">
-                  <div class="amount">
-                    Amount - <%= expense.amount %>$
-                  </div>
-                  <div class="category">
-                    Category - <%= expense.category.name %>
-                  </div>
-                  <div class="when">
-                    When - <%= expense.when %>
-                  </div>
-                </div>
-                <div class="btns">
-                  <%= link_to 'See more', expense_path(expense), class: 'btn btn-primary' %>
-                  <%= link_to 'Edit', edit_expense_path(expense), class: 'btn btn-success' %>
-                  <%= link_to 'Detele', expense, method: :delete, data: { confirm: 'You sure?' }, class: 'btn btn-danger' %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-    <% end %>
+      <%= render partial: 'reports', locals: { incomes: @incomes, expenses: @expenses } %>
     </div>
   <% else %>
-  <div class="center hero-unit">
-    <h1>Welcome to the application "Personal finance tracking"</h1>
-    <h2>The application will be available after registration / login</h2>
-    <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-large btn-primary' %>
-    <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-large btn-success' %>
-  </div>
+    <div class="center hero-unit">
+      <h1>Welcome to the application "Personal finance tracking"</h1>
+      <h2>The application will be available after registration / login</h2>
+      <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-large btn-primary' %>
+      <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-large btn-success' %>
+    </div>
   <% end %>
 </section>

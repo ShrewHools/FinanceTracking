@@ -2,7 +2,7 @@ class ReportController < ApplicationController
   MIN_DATE = Date.iso8601('1800-01-01')
   MAX_DATE = Date.iso8601('2800-01-01')
 
-   before_filter :authenticate_user!, only: :search
+  before_filter :authenticate_user!, only: :search
 
   def index
     if current_user

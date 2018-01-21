@@ -1,0 +1,8 @@
+<h1>All finances for the period: -100$</h1>
+<% if incomes.present? %>
+  <%= render partial: 'incomes', locals: { incomes: incomes } %>
+<% end %>
+
+<% if expenses.present? %>
+  <%= render partial: 'expenses', locals: { expenses: expenses } %>
+<% end %>

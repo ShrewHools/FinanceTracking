@@ -14,6 +14,10 @@
     border-radius: 6px;
     background-color: rgba(0, 0, 0, 0.5);
 
+    @include breakpoint(xs) {
+      width: 100vw;
+    }
+
     .report {
       background-color: rgba(0, 0, 0, 0.2);
       padding: 15px;
@@ -22,12 +26,21 @@
       justify-content: space-between;
       align-items: center;
 
+      @include breakpoint(xs) {
+        flex-direction: column;
+      }
+
       &:first-child {
         margin-top: 0;
       }
 
       .description {
         display: flex;
+
+        @include breakpoint(xs) {
+          flex-direction: column;
+          padding-bottom: 10px;
+        }
 
         div {
           padding: 0 8px;

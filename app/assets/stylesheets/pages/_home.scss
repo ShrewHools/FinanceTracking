@@ -8,10 +8,19 @@
     padding: 20px;
     border-radius: 6px;
 
+    @include breakpoint(xs) {
+      flex-direction: column;
+      width: 100vw;
+    }
+
     .category {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      @include breakpoint(xs) {
+        margin-bottom: 10px;
+      }
 
       .title {
         font-family: $GraublauHeavy;
@@ -35,14 +44,26 @@
       .inputs {
         display: flex;
 
+        @include breakpoint(xs) {
+          flex-direction: column;
+        }
+
         .input_wrapper {
           margin: 0 10px;
+
+          @include breakpoint(xs) {
+            margin: 10px 10px;
+          }
         }
       }
     }
 
     .btn_wrap {
       align-self: flex-end;
+
+      @include breakpoint(xs) {
+       align-self: center;
+      }
     }
   }
 
@@ -52,12 +73,21 @@
         width: 80%;
         margin: 0 auto;
         text-align: left;
+
+        @include breakpoint(xs) {
+          width: 100vw;
+          text-align: center;
+        }
       }
 
       .reports_wrapper {
         .sum_amount {
           font-family: $GraublauHeavy;
           text-align: left;
+
+          @include breakpoint(xs) {
+            text-align: center;
+          }
 
           span {
             font-size: 25px;

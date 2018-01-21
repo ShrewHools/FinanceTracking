@@ -2,7 +2,8 @@ class CategoriesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @categories = current_user.categories
+    @income_categories = current_user.categories.where(status: 'income')
+    @expense_categories = current_user.categories.where(status: 'expense')
   end
 
   def new

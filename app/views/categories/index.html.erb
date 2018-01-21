@@ -1,11 +1,15 @@
 <section class="categories">
   <%= link_to 'Create category', new_category_path, class: 'btn btn-success' %>
 
-  <% @categories.each do |category| %>
-    <p>
-      <%= category.name %>
-      <%= link_to 'update', edit_category_path(category), class: 'btn btn-primary' %>
-      <%= link_to 'delete', category, method: :delete, data: { confirm: 'You sure?' }, class: 'btn btn-danger' %>
-    </p>
-  <% end %>
+  <div class="categories_wrap">
+    <div class="expens_categories">
+      <h1>Expense categories</h1>
+      <%= render partial: 'categories', locals: { categories: @expense_categories } %>
+    </div>
+
+    <div class="income_categories">
+      <h1>Income categories</h1>
+      <%= render partial: 'categories', locals: { categories: @income_categories } %>
+    </div>
+  </div>
 </section>

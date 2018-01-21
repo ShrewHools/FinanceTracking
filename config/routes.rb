@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'report#index'
-  get 'report/index'
+  resources :report, only: :index do
+    get 'search', on: :collection
+  end
 
   resources :categories, except: [:show]
   resources :incomes

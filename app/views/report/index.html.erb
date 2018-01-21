@@ -2,12 +2,52 @@
   <% if current_user %>
     <%= link_to 'Create Income', new_income_path, class: 'btn btn-lg btn-success' %>
     <%= link_to 'Create Expense', new_expense_path, class: 'btn btn-lg btn-danger' %>
+
+    <%= form_tag({ controller: 'report', action: 'search' }, method: 'get', remote: true, class:'filters_box') do %>
+      <div class="category">
+        <div class="title">Category</div>
+        <div class="select_category">
+          <select id="category_search" name="category_id" class="selectpicker">
+            <option class="disabled_options" selected value> -- Select category -- </option>
+            <% if @income_categories.present? %>
+              <optgroup label="Income">
+                <% @income_categories.each do |category| %>
+                  <option value="<%= category.id %>"><%= category.name %></option>
+                <% end %>
+              </optgroup>
+            <% end %>
+            <% if @expense_categories.present? %>
+              <optgroup label="Expense">
+                <% @expense_categories.each do |category| %>
+                  <option value="<%= category.id %>"><%= category.name %></option>
+                <% end %>
+              </optgroup>
+            </select>
+          <% end %>
+        </div>
+      </div>
+      <div class="period">
+        <div class="title">Period</div>
+        <div class="inputs">
+          <div class="input_wrapper">
+            From <%= date_field_tag :min_range, nil, class: 'form-control', placeholder: 'dd.mm.yyyy' %>
+          </div>
+          <div class="input_wrapper">
+             To <%= date_field_tag :max_range, nil, class: 'form-control', placeholder: 'dd.mm.yyyy' %>
+          </div>
+        </div>
+      </div>
+      <div class="btn_wrap">
+        <%= submit_tag('Search', class: 'btn btn btn-primary') %>
+      </div>
+    <% end %>
+
     <div class="reports">
       <h1>All finances for the period: -100$</h1>
-      <div class="report_index">
-        <h1><span class="glyphicon glyphicon-gift color--green" aria-hidden="true"> </span>Incomes</h1>
-        <div class="reports_wrapper">
-          <% if @incomes.present? %>
+      <% if @incomes.present? %>
+        <div class="incomes report_index">
+          <h1><span class="glyphicon glyphicon-gift color--green" aria-hidden="true"> </span>Incomes</h1>
+          <div class="reports_wrapper">
             <p class="sum_amount">Amount of income - <span class="color--green">100$</span></p>
             <% @incomes.each do |income| %>
               <div class="report">
@@ -29,16 +69,15 @@
                 </div>
               </div>
             <% end %>
-          <% else %>
-            <h2>Incomes not found</h2>
-          <% end %>
+          </div>
         </div>
-      </div>
-      <div class="expenses report_index">
-        <h1><i class="fa fa-money color--red" aria-hidden="true"></i>Expenses</h1>
-        <div class="reports_wrapper">
-          <% if @expenses.present? %>
-          <p class="sum_amount">Amount of expense -  <span class="color--red">100$</span></p>
+      <% end %>
+
+      <% if @expenses.present? %>
+        <div class="expenses report_index">
+          <h1><i class="fa fa-money color--red" aria-hidden="true"></i>Expenses</h1>
+          <div class="reports_wrapper">
+            <p class="sum_amount">Amount of expense -  <span class="color--red">100$</span></p>
             <% @expenses.each do |expense| %>
               <div class="report">
                 <div class="description">
@@ -59,11 +98,9 @@
                 </div>
               </div>
             <% end %>
-          <% else %>
-            <h2>Expenses not found</h2>
-          <% end %>
+          </div>
         </div>
-      </div>
+    <% end %>
     </div>
   <% else %>
   <div class="center hero-unit">

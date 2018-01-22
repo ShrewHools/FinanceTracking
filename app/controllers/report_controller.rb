@@ -2,18 +2,17 @@ class ReportController < ApplicationController
   MIN_DATE = Date.iso8601('1800-01-01')
   MAX_DATE = Date.iso8601('2800-01-01')
 
-  before_filter :authenticate_user!, only: :search
+  before_action :authenticate_user!, only: :search
 
   def index
-    if current_user
-      @expenses = current_user.expenses.order(when: :desc)
-      @expense_categories = current_user.categories.where(status: 'expense')
+    return unless current_user
+    @expenses = current_user.expenses
+    @expense_categories = current_user.categories.expense_categories
 
-      @incomes = current_user.incomes.order(when: :desc)
-      @income_categories = current_user.categories.where(status: 'income')
+    @incomes = current_user.incomes
+    @income_categories = current_user.categories.income_categories
 
-      set_amount
-    end
+    set_amount
   end
 
   def search

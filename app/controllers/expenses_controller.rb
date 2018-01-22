@@ -1,9 +1,9 @@
 class ExpensesController < ApplicationController
-  before_filter :authenticate_user!
-  before_action :current_expense, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :current_expense, only: %i[show edit update destroy]
 
   def index
-    @expenses = current_user.expenses.order(when: :desc)
+    @expenses = current_user.expenses
   end
 
   def show
@@ -12,7 +12,7 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = Expense.new
-    @categories = current_user.categories.where(status: 'expense')
+    @categories = current_user.categories.expense_categories
   end
 
   def create
@@ -25,7 +25,7 @@ class ExpensesController < ApplicationController
   end
 
   def edit
-    @categories = current_user.categories.where(status: 'expense')
+    @categories = current_user.categories.expense_categories
     redirect_to root_path, flash: { danger: 'Expense not found' } unless @expense
   end
 

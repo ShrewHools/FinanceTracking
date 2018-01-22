@@ -1,9 +1,10 @@
 class CategoriesController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
+  before_action :current_category, only: %i[edit update destroy]
 
   def index
-    @income_categories = current_user.categories.where(status: 'income')
-    @expense_categories = current_user.categories.where(status: 'expense')
+    @income_categories = current_user.categories.income_categories
+    @expense_categories = current_user.categories.expense_categories
   end
 
   def new
@@ -13,8 +14,7 @@ class CategoriesController < ApplicationController
   def create
     @category = current_user.categories.build(category_params)
     if @category.save
-      flash[:success] = 'Category created'
-      redirect_to categories_path
+      redirect_to categories_path, flash: { success: 'Category created' }
     else
       flash.now[:danger] = @category.errors.full_messages.to_sentence
       render 'new'
@@ -22,12 +22,10 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = current_user.categories.find_by(id: params[:id])
     redirect_to categories_path, flash: { danger: 'Category not found' } unless @category
   end
 
   def update
-    @category = current_user.categories.find_by(id: params[:id])
     if @category.update_attributes(category_params)
       redirect_to categories_path, flash: { success: 'Category updated' }
     else
@@ -37,7 +35,6 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = current_user.categories.find_by(id: params[:id])
     if @category
       @category.destroy
       redirect_to categories_path, flash: { success: 'Category deleted' }
@@ -50,5 +47,9 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name, :status)
+  end
+
+  def current_category
+    @category = current_user.categories.find_by(id: params[:id])
   end
 end

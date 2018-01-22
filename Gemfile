@@ -20,6 +20,7 @@ gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'font-awesome-sass'
 gem 'devise'
 gem 'rubocop'
+gem 'date_validator'
 
 group :development, :test do
   gem 'byebug', platform: :mri

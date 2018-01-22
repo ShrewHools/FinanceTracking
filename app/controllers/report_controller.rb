@@ -6,11 +6,11 @@ class ReportController < ApplicationController
 
   def index
     return unless current_user
-    @expenses = current_user.expenses.order(when: :desc)
-    @expense_categories = current_user.categories.where(status: 'expense')
+    @expenses = current_user.expenses
+    @expense_categories = current_user.categories.expense_categories
 
-    @incomes = current_user.incomes.order(when: :desc)
-    @income_categories = current_user.categories.where(status: 'income')
+    @incomes = current_user.incomes
+    @income_categories = current_user.categories.income_categories
 
     set_amount
   end

@@ -3,8 +3,8 @@ class CategoriesController < ApplicationController
   before_action :current_category, only: %i[edit update destroy]
 
   def index
-    @income_categories = current_user.categories.where(status: 'income')
-    @expense_categories = current_user.categories.where(status: 'expense')
+    @income_categories = current_user.categories.income_categories
+    @expense_categories = current_user.categories.expense_categories
   end
 
   def new
@@ -14,8 +14,7 @@ class CategoriesController < ApplicationController
   def create
     @category = current_user.categories.build(category_params)
     if @category.save
-      flash[:success] = 'Category created'
-      redirect_to categories_path
+      redirect_to categories_path, flash: { success: 'Category created' }
     else
       flash.now[:danger] = @category.errors.full_messages.to_sentence
       render 'new'

@@ -1,4 +1,6 @@
 class Expense < ApplicationRecord
+  default_scope { order(when: :desc) }
+
   belongs_to :user
   belongs_to :category
 

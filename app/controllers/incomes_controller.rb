@@ -3,7 +3,7 @@ class IncomesController < ApplicationController
   before_action :current_expense, only: %i[show edit update destroy]
 
   def index
-    @incomes = current_user.incomes.order(when: :desc)
+    @incomes = current_user.incomes
   end
 
   def show
@@ -12,7 +12,7 @@ class IncomesController < ApplicationController
 
   def new
     @income = Income.new
-    @categories = current_user.categories.where(status: 'income')
+    @categories = current_user.categories.income_categories
   end
 
   def create
@@ -25,7 +25,7 @@ class IncomesController < ApplicationController
   end
 
   def edit
-    @categories = current_user.categories.where(status: 'income')
+    @categories = current_user.categories.income_categories
     redirect_to root_path, flash: { danger: 'Income not found' } unless @income
   end
 

@@ -1,4 +1,7 @@
 class Category < ApplicationRecord
+  scope :income_categories, -> { where(status: 'income') }
+  scope :expense_categories, -> { where(status: 'expense') }
+
   enum statuses: { income: 0, expense: 1 }
 
   belongs_to :user

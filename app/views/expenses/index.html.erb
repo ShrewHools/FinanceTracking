@@ -2,18 +2,26 @@
   <h1><i class="fa fa-money color--red" aria-hidden="true"></i>Expenses</h1>
   <%= link_to 'Create Expense', new_expense_path, class: 'btn btn-lg btn-danger' %>
   <div class="reports_wrapper">
+    <div class="header_desc">
+      <div class="amount">Amount</div>
+      <div class="category">Category</div>
+      <div class="when">When</div>
+      <div class="description">Description</div>
+      <div class="btns"></div>
+    </div>
     <% @expenses.each do |expense| %>
       <div class="report">
+        <div class="amount">
+          <span class="disp_mob">Amount:</span> <%= expense.amount %>$
+        </div>
+        <div class="category">
+          <span class="disp_mob">Category:</span><%= expense.category.name %>
+        </div>
+        <div class="when">
+          <span class="disp_mob">When:</span><%= expense.when %>
+        </div>
         <div class="description">
-          <div class="amount">
-            Amount - <%= expense.amount %>$
-          </div>
-          <div class="category">
-            Category - <%= expense.category.name %>
-          </div>
-          <div class="when">
-            When - <%= expense.when %>
-          </div>
+          <span class="disp_mob">Description:</span> <%= expense.description %>
         </div>
         <div class="btns">
           <%= link_to 'See more', expense_path(expense), class: 'btn btn-primary' %>

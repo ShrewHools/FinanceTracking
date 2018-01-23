@@ -4,11 +4,19 @@
   <div class="categories_wrap">
     <div class="expens_categories categ">
       <h1><i class="fa fa-money color--red" aria-hidden="true"></i>Expense categories</h1>
+      <div class="header_desc">
+        <div class="name">Name</div>
+        <div class="btns"></div>
+      </div>
       <%= render partial: 'categories', locals: { categories: @expense_categories } %>
     </div>
 
     <div class="income_categories categ">
       <h1><span class="glyphicon glyphicon-gift color--green" aria-hidden="true"> </span>Income categories</h1>
+      <div class="header_desc">
+        <div class="name">Name</div>
+        <div class="btns"></div>
+      </div>
       <%= render partial: 'categories', locals: { categories: @income_categories } %>
     </div>
   </div>

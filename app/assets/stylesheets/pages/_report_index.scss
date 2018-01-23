@@ -8,14 +8,76 @@
   }
 
   .reports_wrapper {
-    width: 80%;
+    width: 90%;
     margin: 20px auto;
     padding: 20px;
     border-radius: 6px;
     background-color: rgba(0, 0, 0, 0.5);
+    text-align: left;
 
     @include breakpoint(xs) {
       width: 100vw;
+      text-align: center;
+    }
+
+    .header_desc {
+      display: flex;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.2);
+
+      @include breakpoint(xs) {
+        display: none;
+      }
+    }
+
+    .amount {
+      width: 15%;
+
+      @include breakpoint(xs) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+    }
+
+    .category {
+      width: 15%;
+
+      @include breakpoint(xs) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+    }
+
+    .when {
+      width: 10%;
+
+      @include breakpoint(xs) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+    }
+
+    .description {
+      width: 40%;
+
+      @include breakpoint(xs) {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+
+    .btns {
+      width: 20%;
+
+      @include breakpoint(xs) {
+        width: 100%;
+      }
     }
 
     .report {
@@ -30,25 +92,21 @@
         flex-direction: column;
       }
 
-      &:first-child {
-        margin-top: 0;
+      div {
+        padding: 0 5px;
       }
 
-      .description {
-        display: flex;
+      .disp_mob {
+        display: none;
 
         @include breakpoint(xs) {
-          flex-direction: column;
-          padding-bottom: 10px;
-        }
-
-        div {
-          padding: 0 8px;
+          display: block;
+          margin-right: 5px;
         }
       }
 
-      .btn {
-        margin: 0 8px;
+      &:first-child {
+        margin-top: 0;
       }
     }
   }

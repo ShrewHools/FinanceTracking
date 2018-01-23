@@ -2,18 +2,26 @@
   <h1><span class="glyphicon glyphicon-gift color--green" aria-hidden="true"> </span>Incomes</h1>
   <%= link_to 'Create Income', new_income_path, class: 'btn btn-lg btn-success' %>
   <div class="reports_wrapper">
+    <div class="header_desc">
+      <div class="amount">Amount</div>
+      <div class="category">Category</div>
+      <div class="when">When</div>
+      <div class="description">Description</div>
+      <div class="btns"></div>
+    </div>
     <% @incomes.each do |income| %>
       <div class="report">
+        <div class="amount">
+          <span class="disp_mob">Amount:</span><%= income.amount %>$
+        </div>
+        <div class="category">
+          <span class="disp_mob">Category:</span> <%= income.category.name %>
+        </div>
+        <div class="when">
+          <span class="disp_mob">When:</span> <%= income.when %>
+        </div>
         <div class="description">
-          <div class="amount">
-            Amount - <%= income.amount %>$
-          </div>
-          <div class="category">
-            Category - <%= income.category.name %>
-          </div>
-          <div class="when">
-            When - <%= income.when %>
-          </div>
+          <span class="disp_mob">Description:</span> <%= income.description %>
         </div>
         <div class="btns">
           <%= link_to 'See more', income_path(income), class: 'btn btn-primary' %>

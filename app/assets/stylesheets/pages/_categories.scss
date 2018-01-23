@@ -38,6 +38,37 @@
         background-color: rgba(0,0,0,0.2);
         padding: 15px;
         margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include breakpoint(xs) {
+          flex-direction: column;
+        }
+
+        .desrtiption_wrapper {
+          display: flex;
+          margin-right: 15px;
+
+          @include breakpoint(xs) {
+            margin-right: 0;
+            margin-bottom: 10px;
+          }
+
+          p {
+            margin-bottom: 0;
+          }
+
+          .name {
+            margin-right: 10px;
+          }
+        }
+
+        .links_wrapper {
+          .btn-edit {
+            margin-right: 5px;
+          }
+        }
       }
     }
   }
